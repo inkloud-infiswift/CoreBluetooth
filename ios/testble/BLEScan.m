@@ -27,12 +27,6 @@
   return self;
 }
 
-
-//-(void) centralManagerDidUpdateState:(CBCentralManager *)central {
-//  NSLog(@"BLEScan: centralManagerDidUpdateState ");
-//  [self beginSearch];
-//}
-
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
   // You should test all scenarios
   NSLog(@"BLEScan: state %li", (long)central.state);
@@ -44,31 +38,6 @@
       // Scan for devices
     [_manager scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
     NSLog(@"Scanning started");
-  }
-}
-
--(void) beginSearch  {
-  switch ([_manager state]) {
-
-    case CBManagerStateUnknown:
-      NSLog(@"BLEScan: Unknown state");
-      break;
-    case CBManagerStateResetting:
-      NSLog(@"BLEScan: Resetting");
-      break;
-    case CBManagerStateUnsupported:
-      NSLog(@"BLEScan: BLE unsupported");
-      break;
-    case CBManagerStateUnauthorized:
-      NSLog(@"BLEScan: App is not authorized to use BLE");
-      break;
-    case CBManagerStatePoweredOff:
-      NSLog(@"BLEScan: BLE is powered off");
-      break;
-    case CBManagerStatePoweredOn:
-      NSLog(@"BLEScan: Powered on");
-      [_manager scanForPeripheralsWithServices:nil options:nil];
-      break;
   }
 }
 

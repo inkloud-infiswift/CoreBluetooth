@@ -61,8 +61,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-//  BLEScan *scanner = [[BLEScan alloc] initModule];
-  _manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+  BLEScan *scanner = [[BLEScan alloc] initModule];
 
   
   return YES;
